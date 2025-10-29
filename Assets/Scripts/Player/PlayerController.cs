@@ -124,6 +124,12 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+
+    private void OnAttackStart()
+    {
+        //播放攻击音效
+        SoundManager.instance.PlaySound(SoundIndex.player_sword);
+    }
     private void OnAttackEnd()
     {
         //攻击结束后恢复移动状态
