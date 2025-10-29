@@ -56,5 +56,5 @@
         "temp/": true,
         "Temp/": true
     },
-    "dotnet.defaultSolution": "HollowKnight.sln"
+    "dotnet.defaultSolution": "HK.sln"
 }
