@@ -1,0 +1,37 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\unityproject\\HK\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{CE9B78C2-9683-BB6A-09A3-DFB2CC415A8B}|Assembly-CSharp.csproj|d:\\unityproject\\hk\\assets\\scripts\\enemy\\crawild\\crawild.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CE9B78C2-9683-BB6A-09A3-DFB2CC415A8B}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\enemy\\crawild\\crawild.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "crawild.cs",
+              "DocumentMoniker": "D:\\unityproject\\HK\\Assets\\Scripts\\Enemy\\crawild\\crawild.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Enemy\\crawild\\crawild.cs",
+              "ToolTip": "D:\\unityproject\\HK\\Assets\\Scripts\\Enemy\\crawild\\crawild.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Enemy\\crawild\\crawild.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAADwvwAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-29T07:10:56.846Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
