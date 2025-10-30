@@ -21,6 +21,6 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-        SoundManager.instance.PlayBGM(SoundIndex.first_game_BG, 0.7f);
+        SoundManager.instance.PlayBGM(SoundIndex.colosseumLv1_BG, 0.7f);
     }
 }

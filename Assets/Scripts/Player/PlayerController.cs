@@ -17,7 +17,8 @@ enum PlayerState
 {
     Movement = 0,
     Dash = 1,
-    Attack = 2
+    Attack = 2,
+    SuperDash = 3
 }
 
 public class PlayerController : MonoBehaviour
@@ -70,6 +71,13 @@ public class PlayerController : MonoBehaviour
         {
             currentState = PlayerState.Dash;
         }
+    }
+
+    private void HandleSuperDashInput()
+    {
+        //处理超级冲刺输入逻辑
+        //超级冲刺必须持续按下冲刺键2秒以上才能触发
+        //TODO
     }
 
     private void HandleAttackInput()
@@ -130,7 +138,7 @@ public class PlayerController : MonoBehaviour
         //播放攻击音效
         SoundManager.instance.PlaySound(SoundIndex.player_sword);
     }
-    private void OnAttackEnd()
+    public void OnAttackEnd()
     {
         //攻击结束后恢复移动状态
         currentState = PlayerState.Movement;
@@ -146,11 +154,13 @@ public class PlayerController : MonoBehaviour
         canAttack = true;
     }
 
+    //处理所有输入
     private void HandleInput()
     {
         HandleMovementInput();
         HandleDashInput();
         HandleAttackInput();
+        HandleSuperDashInput();
     }
 
     void Update()
@@ -171,6 +181,10 @@ public class PlayerController : MonoBehaviour
             case PlayerState.Attack:
                 //处理攻击状态的逻辑
                 AttackMove();
+                break;
+            case PlayerState.SuperDash:
+                //处理超级冲刺状态的逻辑
+
                 break;
         }
     }
@@ -247,6 +261,8 @@ public class PlayerController : MonoBehaviour
         //冲刺时忽略重力影响
         rb.gravityScale = 0;
         anim.SetTrigger("dash");
+        //播放冲刺音效
+        SoundManager.instance.PlaySound(SoundIndex.player_dash);
         //使用协程处理冲刺持续时间和结束后的状态恢复
         StartCoroutine(DashCoroutine(dashDuration));
     }
@@ -316,7 +332,7 @@ public class PlayerController : MonoBehaviour
             jumpPressTime += Time.deltaTime;
             jumpPressTime = Mathf.Min(jumpPressTime, maxJumpPressTime);
             float jumpForceFactor = jumpForceCurve.Evaluate(jumpPressTime / maxJumpPressTime);
-            rb.AddForce(new Vector2(0, jumpForce * jumpForceFactor), ForceMode2D.Force);
+            rb.AddForce(new Vector2(0, jumpForce * jumpForceFactor * Time.deltaTime), ForceMode2D.Force);
         }
 
         if (Input.GetKeyUp(KeyCode.K))
@@ -327,10 +343,11 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    [SerializeField] private float doubleJumpForce = 6f;
     private void DoubleJump()
     {
         rb.velocity = new Vector2(rb.velocity.x, 0); //重置垂直速度
-        rb.AddForce(new Vector2(0, jumpForce), ForceMode2D.Impulse);
+        rb.AddForce(new Vector2(0, doubleJumpForce), ForceMode2D.Impulse);
         anim.SetTrigger("jumpTwo");
         SoundManager.instance.PlaySound(SoundIndex.player_jump);
     }
