@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 7344360049358926107}
   - component: {fileID: 5064465941410526676}
   - component: {fileID: 6987336485019072430}
+  - component: {fileID: 7767583580316323694}
   m_Layer: 0
   m_Name: Knight
   m_TagString: Untagged
@@ -164,7 +165,7 @@ Rigidbody2D:
     m_Bits: 0
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 4
 --- !u!114 &7626116511931153254
 MonoBehaviour:
@@ -179,7 +180,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
-  jumpForce: 5
+  jumpForce: 1650
   jumpForceCurve:
     serializedVersion: 2
     m_Curve:
@@ -193,10 +194,19 @@ MonoBehaviour:
       inWeight: 0
       outWeight: 0
     - serializedVersion: 3
-      time: 0.39439505
-      value: 0.9938812
-      inSlope: -0.057140306
-      outSlope: -0.057140306
+      time: 0.38629147
+      value: 1.001276
+      inSlope: 0.0030635542
+      outSlope: 0.0030635542
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.6974194
+    - serializedVersion: 3
+      time: 0.5530051
+      value: 0.7150705
+      inSlope: -1.1839364
+      outSlope: -1.1839364
       tangentMode: 0
       weightedMode: 0
       inWeight: 0.33333334
@@ -228,6 +238,7 @@ MonoBehaviour:
   attackCooldown: 0.1
   maxJumpPressTime: 0.4
   hardLandingThreshold: 1.5
+  doubleJumpForce: 6
 --- !u!95 &7344360049358926107
 Animator:
   serializedVersion: 5
@@ -359,6 +370,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   audioSource: {fileID: 0}
   footstepClip: {fileID: 8300000, guid: bbe938047a73bfe40adc0f30ad8b34d8, type: 3}
+--- !u!114 &7767583580316323694
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2001754278036497430}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d265bf29c224fb4bb7ba6d482923ce1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2809861003531292320
 GameObject:
   m_ObjectHideFlags: 0
