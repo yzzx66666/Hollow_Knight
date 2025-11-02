@@ -15,8 +15,8 @@ GameObject:
   - component: {fileID: 7626116511931153254}
   - component: {fileID: 7344360049358926107}
   - component: {fileID: 5064465941410526676}
-  - component: {fileID: 6987336485019072430}
   - component: {fileID: 7767583580316323694}
+  - component: {fileID: 415404412308658723}
   m_Layer: 0
   m_Name: Knight
   m_TagString: Untagged
@@ -356,7 +356,22 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &6987336485019072430
+--- !u!114 &7767583580316323694
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2001754278036497430}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d265bf29c224fb4bb7ba6d482923ce1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  chargeTime: 2.5
+  dashDuration: 5
+  dashSpeed: 20
+--- !u!114 &415404412308658723
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -370,18 +385,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   audioSource: {fileID: 0}
   footstepClip: {fileID: 8300000, guid: bbe938047a73bfe40adc0f30ad8b34d8, type: 3}
---- !u!114 &7767583580316323694
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2001754278036497430}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1d265bf29c224fb4bb7ba6d482923ce1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  fallingClip: {fileID: 8300000, guid: 629ea50a847ad7f4bbbcc76b30a265d2, type: 3}
 --- !u!1 &2809861003531292320
 GameObject:
   m_ObjectHideFlags: 0

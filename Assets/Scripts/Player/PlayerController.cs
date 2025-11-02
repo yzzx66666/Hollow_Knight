@@ -73,13 +73,6 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    private void HandleSuperDashInput()
-    {
-        //处理超级冲刺输入逻辑
-        //超级冲刺必须持续按下冲刺键2秒以上才能触发
-        //TODO
-    }
-
     private void HandleAttackInput()
     {
         //处理攻击输入逻辑
@@ -160,7 +153,6 @@ public class PlayerController : MonoBehaviour
         HandleMovementInput();
         HandleDashInput();
         HandleAttackInput();
-        HandleSuperDashInput();
     }
 
     void Update()

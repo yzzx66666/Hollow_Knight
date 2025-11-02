@@ -6,18 +6,18 @@ public class WalkStateBehavior : StateMachineBehaviour
     public bool enableFootsteps = true;
     public bool stopSoundOnExit = true;
     
-    private FootstepController footstepController;
+    private PlayerSound playerSound;
     private bool hasInitialized = false;
 
-    // 初始化footstepController
+    // 初始化playerSound
     private void Initialize(Animator animator)
     {
         if (hasInitialized) return;
         
-        footstepController = animator.GetComponent<FootstepController>();
-        if (footstepController == null)
+        playerSound = animator.GetComponent<PlayerSound>();
+        if (playerSound == null)
         {
-            Debug.LogWarning("FootstepController未在 " + animator.gameObject.name + " 上找到！");
+            Debug.LogWarning("playerSound未在 " + animator.gameObject.name + " 上找到！");
         }
         hasInitialized = true;
     }
@@ -27,18 +27,18 @@ public class WalkStateBehavior : StateMachineBehaviour
     {
         Initialize(animator);
         
-        if (footstepController != null && enableFootsteps)
+        if (playerSound != null && enableFootsteps)
         {
-            footstepController.SetWalkingState(true);
+            playerSound.SetWalkingState(true);
         }
     }
     
     // 退出状态时调用
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        if (footstepController != null && stopSoundOnExit)
+        if (playerSound != null && stopSoundOnExit)
         {
-            footstepController.SetWalkingState(false);
+            playerSound.SetWalkingState(false);
         }
     }
     

@@ -1209,17 +1209,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7626116511931153254, guid: f5fff55a9483a714da75bf546c21b083, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 7767583580316323694, guid: f5fff55a9483a714da75bf546c21b083, type: 3}
       propertyPath: chargeTime
-      value: 2.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 7767583580316323694, guid: f5fff55a9483a714da75bf546c21b083, type: 3}
-      propertyPath: dashDuration
-      value: 5
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

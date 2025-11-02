@@ -10,6 +10,7 @@ public class SuperDash : MonoBehaviour
     private enum DashState { Idle, Charging, Waiting, Dashing, Stopping };
     private DashState currentState = DashState.Idle;
     [SerializeField] private float chargeTime = 1.0f;
+    [SerializeField] private float maxChargeTime = 2.5f;
     [SerializeField] private float dashDuration = 0.5f;
     [SerializeField] private float dashSpeed = 20.0f;
     private float chargeTimer = 0.0f;
@@ -19,12 +20,22 @@ public class SuperDash : MonoBehaviour
     private Rigidbody2D rb;
     private PlayerController playerController;
 
+    private AudioSource audioSource;
+
+    private AudioClip superDashSound; //冲刺音效
 
     private void Start()
     {
         animator = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
         playerController = GetComponent<PlayerController>();
+        audioSource = GetComponent<AudioSource>();
+        superDashSound = Resources.Load<AudioClip>("Audios/" + SoundIndex.player_superDash_loop);
+
+        if (superDashSound == null)
+        {
+            Debug.LogError("冲刺音效未加载");
+        }
     }
 
     void Update()
@@ -72,6 +83,7 @@ public class SuperDash : MonoBehaviour
                 playerController.enabled = false;
                 chargeTimer = 0.0f;
                 animator.SetTrigger("superDash");
+                SoundManager.instance.PlaySound(SoundIndex.player_superDash_charge);
                 break;
 
             case DashState.Waiting:
@@ -81,6 +93,10 @@ public class SuperDash : MonoBehaviour
                 dashTimer = 0.0f;
                 rb.gravityScale = 0;
                 animator.SetTrigger("superDash_sprint");
+                //播放冲刺音效（循环）
+                audioSource.clip = superDashSound;
+                audioSource.loop = true;
+                audioSource.Play();
                 break;
 
             case DashState.Stopping:
@@ -101,6 +117,7 @@ public class SuperDash : MonoBehaviour
 
             case DashState.Charging:
                 chargeTimer = 0.0f;
+                isPlayingReadySound = false;
                 break;
 
             case DashState.Waiting:
@@ -108,6 +125,8 @@ public class SuperDash : MonoBehaviour
 
             case DashState.Dashing:
                 dashTimer = 0.0f;
+                //停止播放冲刺音效
+                audioSource.Stop();
                 break;
 
             case DashState.Stopping:
@@ -141,11 +160,20 @@ public class SuperDash : MonoBehaviour
         }
     }
 
+    private bool isPlayingReadySound = false;
+
     private void HandleWaitingState()
     {
         chargeTimer += Time.deltaTime;
 
-        if (chargeTimer >= chargeTime)
+        if (chargeTimer >= chargeTime && !isPlayingReadySound)
+        {
+            //准备就绪
+            SoundManager.instance.PlaySound(SoundIndex.player_superDash_ready);
+            isPlayingReadySound = true;
+        }
+
+        if (chargeTimer >= maxChargeTime)
         {
             //达到最大蓄力时间后自动进入冲刺状态
             ChangeState(DashState.Dashing);
