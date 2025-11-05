@@ -348,6 +348,27 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: lose_health_5
+      rect:
+        serializedVersion: 2
+        x: 433
+        y: 216
+        width: 65
+        height: 142
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: af1f33cf18b650746a24aee4a07d38a7
+      internalID: -836744841
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -371,6 +392,7 @@ TextureImporter:
       lose_health_2: -59358496
       lose_health_3: 1963293128
       lose_health_4: -755557022
+      lose_health_5: -836744841
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
