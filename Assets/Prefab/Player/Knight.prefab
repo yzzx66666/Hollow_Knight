@@ -35,14 +35,13 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: -1, y: 1, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5386917646475554495}
   - {fileID: 4211676128724079053}
   - {fileID: 6964949907445185377}
   - {fileID: 6712188750539010202}
-  - {fileID: 6186355662608082752}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &6955165399822116166
@@ -157,7 +156,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1.5
+  m_GravityScale: 1
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -187,23 +186,14 @@ MonoBehaviour:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 3
-      time: 0.00014038105
-      value: 5.5155663
+      time: 0.012294769
+      value: 0.99798584
       inSlope: 0
       outSlope: 0
       tangentMode: 0
       weightedMode: 0
       inWeight: 0
       outWeight: 0
-    - serializedVersion: 3
-      time: 0.053532224
-      value: 1.258841
-      inSlope: -1.9871995
-      outSlope: -1.9871995
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.3306571
     - serializedVersion: 3
       time: 0.38629147
       value: 1.001276
@@ -246,9 +236,6 @@ MonoBehaviour:
   dashForce: 8
   dashCooldown: 1
   dashDuration: 0.4
-  fireBall_cooldown: 1.5
-  fireBallPrefab: {fileID: 3312149520229250569, guid: 53edf60ef8339ad47a5def34c8402f4c, type: 3}
-  fireBallSpawnPoint: {fileID: 6186355662608082752}
   attackCooldown: 0.1
   maxJumpPressTime: 0.4
   hardLandingThreshold: 1.5
@@ -702,37 +689,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hitEffect: {fileID: 7978305935418545222, guid: a3d1d90d22539c049af13e61d886043a, type: 3}
---- !u!1 &6405571041243695065
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 6186355662608082752}
-  m_Layer: 0
-  m_Name: shadow_fireball_point
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &6186355662608082752
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6405571041243695065}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.65, y: 0, z: 0}
-  m_LocalScale: {x: -1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 6760559849741997760}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8060005176858999550
 GameObject:
   m_ObjectHideFlags: 0

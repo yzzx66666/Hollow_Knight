@@ -24,17 +24,14 @@ public class PlayerHealth : MonoBehaviour
         current_health -= damage;
         if (current_health <= 0)
         {
-            //死亡
+            //TODO:死亡
             HealthUIMgr.Instance.LoseHealth(current_health, damage, max_health);
             playerController.enabled = false;
-            animator.SetTrigger("death");
-            SoundManager.instance.PlaySound(SoundIndex.player_death);
         }
         else
         {
             //受伤动画
             animator.SetTrigger("hit");
-            SoundManager.instance.PlaySound(SoundIndex.player_injured);
             playerController.enabled = false;
             //UI生命值受伤
             HealthUIMgr.Instance.LoseHealth(current_health, damage, max_health);

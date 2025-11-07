@@ -11,14 +11,9 @@ public static class SoundIndex
     public const string player_sword = "Player/sword_1";
     public const string player_dash = "Player/hero_dash";
 
-    public const string player_injured = "Player/PlayerInjured";
-    public const string player_death = "Player/PlayerDeath";
-    public const string player_fireball = "Player/hollow_shade_fireball";
-
     public const string player_superDash_charge = "Player/SuperDash/hero_super_dash_charge";
     public const string player_superDash_ready = "Player/SuperDash/hero_super_dash_ready";
     public const string player_superDash_loop = "Player/SuperDash/hero_super_dash_loop";
-    
 
 
 

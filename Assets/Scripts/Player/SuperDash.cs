@@ -101,7 +101,7 @@ public class SuperDash : MonoBehaviour
 
             case DashState.Stopping:
                 rb.velocity = new Vector2(0, 0);
-                rb.gravityScale = 1.5f;
+                rb.gravityScale = 1;
                 animator.SetTrigger("superDash_stop");
                 break;
         }
@@ -113,7 +113,6 @@ public class SuperDash : MonoBehaviour
         {
             case DashState.Idle:
                 playerController.enabled = false;
-                rb.velocity = new Vector2(0, 0);
                 break;
 
             case DashState.Charging:
@@ -128,7 +127,6 @@ public class SuperDash : MonoBehaviour
                 dashTimer = 0.0f;
                 //停止播放冲刺音效
                 audioSource.Stop();
-                rb.gravityScale = 1.5f;
                 break;
 
             case DashState.Stopping:
@@ -222,13 +220,5 @@ public class SuperDash : MonoBehaviour
             playerController.enabled = true;
             ChangeState(DashState.Idle);
         }
-    }
-
-    public void ResetAll()
-    {
-        ChangeState(DashState.Idle);
-        audioSource.Stop();
-        animator.ResetTrigger("superDash");
-        EnterState(DashState.Idle);
     }
 }

@@ -18,8 +18,7 @@ enum PlayerState
     Movement = 0,
     Dash = 1,
     Attack = 2,
-    SuperDash = 3,
-    FireBall = 4
+    SuperDash = 3
 }
 
 public class PlayerController : MonoBehaviour
@@ -39,12 +38,6 @@ public class PlayerController : MonoBehaviour
     private bool canDash = true; //是否可以冲刺
     [SerializeField] private float dashCooldown = 1f;
     [SerializeField] private float dashDuration = 0.2f;
-
-    [Header("火球")]
-    [SerializeField] private float fireBall_cooldown = 1.0f;
-    private bool canFireBall = true;
-    [SerializeField] private GameObject fireBallPrefab;
-    [SerializeField] private Transform fireBallSpawnPoint;
 
     private bool canAttack = true;
     [SerializeField] private float attackCooldown = 0.5f;
@@ -160,7 +153,6 @@ public class PlayerController : MonoBehaviour
         HandleMovementInput();
         HandleDashInput();
         HandleAttackInput();
-        HandleFireBallInput();
     }
 
     void Update()
@@ -186,9 +178,6 @@ public class PlayerController : MonoBehaviour
                 //处理超级冲刺状态的逻辑
 
                 break;
-            case PlayerState.FireBall:
-                //处理火球状态的逻辑
-                break;
         }
     }
 
@@ -201,7 +190,7 @@ public class PlayerController : MonoBehaviour
 
     private void Movement()
     {
-        float x_speed = speed * (isOnGround ? 1f : 0.65f);
+        float x_speed = speed * (isOnGround ? 1f : 0.5f);
         rb.velocity = new Vector2(moveX * x_speed, rb.velocity.y);
 
         if (moveX > 0)
@@ -253,38 +242,6 @@ public class PlayerController : MonoBehaviour
     }
 
 
-    private void HandleFireBallInput()
-    {
-        if (Input.GetKeyDown(KeyCode.U) && canFireBall && anim.GetCurrentAnimatorStateInfo(0).IsName("idle"))
-        {
-            //发射火球
-            currentState = PlayerState.FireBall;
-            anim.SetTrigger("fireball");
-            canFireBall = false;
-            //播放火球音效
-            SoundManager.instance.PlaySound(SoundIndex.player_fireball);
-
-            StartCoroutine(FireBallCooldown(fireBall_cooldown));         
-        }
-    }
-
-    IEnumerator FireBallCooldown(float cooldown)
-    {
-        yield return new WaitForSeconds(cooldown);
-        canFireBall = true;
-    }
-
-    private void OnFireBall()
-    {
-        //发射火球逻辑
-        GameObject fireBall = Instantiate(fireBallPrefab, fireBallSpawnPoint.position, fireBallSpawnPoint.rotation);
-    }
-
-    private void OnFireBallAnimEnd()
-    {
-        currentState = PlayerState.Movement;
-    }
-
     private void Dash()
     {
         if (!canDash) return;
@@ -307,7 +264,7 @@ public class PlayerController : MonoBehaviour
     {
         yield return new WaitForSeconds(dashDuration);
         currentState = PlayerState.Movement;
-        rb.gravityScale = 1.5f; //恢复重力影响
+        rb.gravityScale = 1; //恢复重力影响
         rb.velocity = new Vector2(0, 0);//清空所有冲刺时的速度
         StartCoroutine(DashCooldown(dashCooldown));
     }
