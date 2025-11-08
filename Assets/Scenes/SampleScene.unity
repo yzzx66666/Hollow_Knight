@@ -469,6 +469,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c669934a0c15ff42b02c0b1fc7c2ed4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 1964387825}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -601,7 +602,7 @@ Transform:
   m_GameObject: {fileID: 519420028}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.00000023841858, y: 0.00000011920929, z: -10}
+  m_LocalPosition: {x: 0, y: 0, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1055,7 +1056,7 @@ Transform:
   m_GameObject: {fileID: 1070278931}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.00000023841858, y: 0.00000011920929, z: -10}
+  m_LocalPosition: {x: 0, y: 0, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1308,6 +1309,7 @@ GameObject:
   - component: {fileID: 1198108397}
   - component: {fileID: 1198108399}
   - component: {fileID: 1198108398}
+  - component: {fileID: 1198108400}
   m_Layer: 5
   m_Name: SoulPower
   m_TagString: Untagged
@@ -1372,6 +1374,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1198108396}
   m_CullTransparentMesh: 1
+--- !u!114 &1198108400
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1198108396}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9edcb1af09670364b953768a10843cdc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1702194347
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1666,6 +1680,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 34229b92e9b254d4fa51575c95db7acc, type: 3}
+--- !u!1 &1964387825 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2001754278036497430, guid: f5fff55a9483a714da75bf546c21b083, type: 3}
+  m_PrefabInstance: {fileID: 4175750906781424213}
+  m_PrefabAsset: {fileID: 0}
 --- !u!224 &2036996969 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 7061325379946039570, guid: 34229b92e9b254d4fa51575c95db7acc, type: 3}

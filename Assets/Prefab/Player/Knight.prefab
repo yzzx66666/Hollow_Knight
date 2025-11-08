@@ -18,6 +18,7 @@ GameObject:
   - component: {fileID: 7767583580316323694}
   - component: {fileID: 415404412308658723}
   - component: {fileID: 8641074372048122860}
+  - component: {fileID: 3401916078352661727}
   m_Layer: 0
   m_Name: Knight
   m_TagString: Player
@@ -167,7 +168,7 @@ Rigidbody2D:
     m_Bits: 0
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 4
 --- !u!114 &7626116511931153254
 MonoBehaviour:
@@ -414,6 +415,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   current_health: 5
   max_health: 5
+--- !u!114 &3401916078352661727
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2001754278036497430}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 11ebb9c72b9c900468a322e5c1ca0de0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxSoulPower: 100
+  fireBallCost: 10
+  recoveryCost: 20
 --- !u!1 &2809861003531292320
 GameObject:
   m_ObjectHideFlags: 0

@@ -56,10 +56,12 @@ public class PlayerController : MonoBehaviour
 
     private Rigidbody2D rb;
     private Animator anim;
+    private PlayerSoulPower soulPower;
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
+        soulPower = GetComponent<PlayerSoulPower>();
     }
 
     private bool canCombo = false;
@@ -257,6 +259,8 @@ public class PlayerController : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.U) && canFireBall && anim.GetCurrentAnimatorStateInfo(0).IsName("idle"))
         {
+            if (!soulPower.UseSoulPower(SoulPowerSkill.FireBall))
+                return;
             //发射火球
             currentState = PlayerState.FireBall;
             anim.SetTrigger("fireball");
@@ -277,7 +281,9 @@ public class PlayerController : MonoBehaviour
     private void OnFireBall()
     {
         //发射火球逻辑
-        GameObject fireBall = Instantiate(fireBallPrefab, fireBallSpawnPoint.position, fireBallSpawnPoint.rotation);
+        GameObject fireBallObj = Instantiate(fireBallPrefab, fireBallSpawnPoint.position, fireBallSpawnPoint.rotation);
+        FireBall fireBall = fireBallObj.GetComponent<FireBall>();
+        fireBall.Initialize(transform.localScale.x > 0 ? false : true);
     }
 
     private void OnFireBallAnimEnd()
