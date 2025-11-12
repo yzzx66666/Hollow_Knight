@@ -394,22 +394,23 @@ public class PlayerController : MonoBehaviour
     }
 
     //判断是否在地面
-    private void OnCollisionEnter2D(Collision2D collision)
+
+    void OnTriggerEnter2D(Collider2D collision)
     {
         Grounding(collision, false);
     }
 
-    private void OnCollisionStay2D(Collision2D collision)
+    void OnTriggerStay2D(Collider2D collision)
     {
         Grounding(collision, false);
     }
 
-    private void OnCollisionExit2D(Collision2D collision)
+    void OnTriggerExit2D(Collider2D collision)
     {
         Grounding(collision, true);
     }
 
-    private void Grounding(Collision2D col, bool exitState)
+    private void Grounding(Collider2D col, bool exitState)
     {
         if (exitState)
         {
@@ -421,14 +422,17 @@ public class PlayerController : MonoBehaviour
         }
         else
         {
+            Debug.Log("Grounding check with " + col.gameObject.name);
+            ContactFilter2D filter2D = new ContactFilter2D();
+            //filter2D.SetNormalAngle(70f, 110f);
             if (col.gameObject.layer == LayerMask.NameToLayer("Terrian")
-            && !isOnGround && col.contacts[0].normal == Vector2.up)
+            && !isOnGround && col.GetContacts(filter2D, new ContactPoint2D[1]) > 0)
             {
                 //在地面的一些处理
                 TransitionToGround();
             }
             else if (col.gameObject.layer == LayerMask.NameToLayer("Terrian")
-            && !isOnGround && col.contacts[0].normal == Vector2.down)
+            && !isOnGround && col.GetContacts(filter2D, new ContactPoint2D[1]) == 0)
             {
                 isOnGround = false;
                 JumpCancel();

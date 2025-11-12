@@ -14,7 +14,7 @@ TagManager:
   - Water
   - UI
   - Terrian
-  - 
+  - Foreground
   - 
   - 
   - 
@@ -43,12 +43,15 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: Foreground
+  - name: Background
     uniqueID: 3256955201
     locked: 0
-  - name: Background
+  - name: Player
     uniqueID: 327253061
     locked: 0
-  - name: Player
+  - name: Foreground
     uniqueID: 1859858967
+    locked: 0
+  - name: New Layer 4
+    uniqueID: 2201033793
     locked: 0
