@@ -422,17 +422,14 @@ public class PlayerController : MonoBehaviour
         }
         else
         {
-            Debug.Log("Grounding check with " + col.gameObject.name);
-            ContactFilter2D filter2D = new ContactFilter2D();
-            //filter2D.SetNormalAngle(70f, 110f);
             if (col.gameObject.layer == LayerMask.NameToLayer("Terrian")
-            && !isOnGround && col.GetContacts(filter2D, new ContactPoint2D[1]) > 0)
+            && !isOnGround)
             {
                 //在地面的一些处理
                 TransitionToGround();
             }
             else if (col.gameObject.layer == LayerMask.NameToLayer("Terrian")
-            && !isOnGround && col.GetContacts(filter2D, new ContactPoint2D[1]) == 0)
+            && !isOnGround)
             {
                 isOnGround = false;
                 JumpCancel();

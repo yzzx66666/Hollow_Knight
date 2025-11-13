@@ -16,7 +16,8 @@ public class PlantBase : MonoBehaviour
         if (collision.CompareTag("Player"))
         {
             //播放动画
-            animator.SetTrigger("interact");
+            if (!animator.GetCurrentAnimatorStateInfo(0).IsName("Idle"))
+                animator.SetTrigger("interact");
         }
     }
 }
